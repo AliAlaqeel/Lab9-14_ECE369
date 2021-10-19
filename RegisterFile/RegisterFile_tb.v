@@ -48,6 +48,8 @@ module RegisterFile_tb();
 		@(posedge Clk);
 		#10;
 		RegWrite <= 1;
+		ReadRegister1 <= 0;
+		ReadRegister2 <= 25;
 		
 		for (i = 0; i < 32; i = i + 1) begin
 			#10
@@ -62,8 +64,8 @@ module RegisterFile_tb();
 		#10;
 		for (j = 0; j < 31; j = j + 1) begin
 			#10
-			ReadRegister1 <= i;
-			ReadRegister2 <= i + 1;
+			ReadRegister1 <= j;
+			ReadRegister2 <= j + 1;
 			@(posedge Clk);
 		end
 	end
